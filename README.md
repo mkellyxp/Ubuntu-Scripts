@@ -1,6 +1,17 @@
 # Install Lamp on Ubuntu
 Complete script to install Apache, PHP and MariaDb (MySQL) on Ubuntu based linux distros.  This script will also set the correct folder and mysql permissions.
 
-To use, simply download the install-lamp.sh file and run 'sudo chmod a+rx install-lamp.sh' to make it executable.
+To use, simply download the install-lamp.sh file and run:
+```
+sudo chmod a+rx install-lamp.sh
+```
 
-Then just run ./install-lamp.sh as your user (not as root or sudo)
+to make it executable.
+
+
+Then just run:
+```
+./install-lamp.sh
+```
+ 
+as your user (not as root or sudo)
