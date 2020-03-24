@@ -14,6 +14,7 @@ else
     echo "*************************************"
 
     sudo apt install apache2 php libapache2-mod-php mariadb-server php-mysql
+    sudo a2enmod rewrite
 
     echo ""
     echo ""
