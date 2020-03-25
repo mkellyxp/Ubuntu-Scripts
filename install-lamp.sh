@@ -13,7 +13,7 @@ else
     echo "* Installing Apache, PHP, and MySql *"
     echo "*************************************"
 
-    sudo apt install apache2 php libapache2-mod-php mariadb-server php-mysql
+    sudo apt install apache2 php libapache2-mod-php mariadb-server php-mysql php-mbstring
     sudo a2enmod rewrite
 
     echo ""
