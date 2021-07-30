@@ -13,7 +13,7 @@ else
     echo "* Installing Nginx, PHP, and MySql *"
     echo "************************************"
 
-    sudo apt install php php-fpm mysql-server php-mysql php-mbstring php-xml php-gd php-curl
+    sudo apt install php php-fpm mysql-server php-mysql php-mbstring php-xml php-gd php-curl nginx
 
     echo ""
     echo ""
