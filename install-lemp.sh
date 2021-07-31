@@ -23,15 +23,17 @@ else
 
     mkdir ~/Sites
 
-    #sudo chgrp -R www-data /var/www/html
-    #sudo find /var/www/html -type d -exec chmod g+rx {} +
-    #sudo find /var/www/html -type f -exec chmod g+r {} +
+    sudo chgrp -R www-data ~/Sites
+    sudo find ~/Sites -type d -exec chmod g+rx {} +
+    sudo find ~/Sites -type f -exec chmod g+r {} +
 
-    #sudo chown -R $USER /var/www/html/
-    #sudo find /var/www/html -type d -exec chmod u+rwx {} +
-    #sudo find /var/www/html -type f -exec chmod u+rw {} +
+    sudo chown -R $USER ~/Sites
+    sudo find ~/Sites -type d -exec chmod u+rwx {} +
+    sudo find ~/Sites -type f -exec chmod u+rw {} +
 
-    #sudo find /var/www/html -type d -exec chmod g+s {} +
+    sudo find ~/Sites -type d -exec chmod g+s {} +
+
+    chmod 701 ~
 
     printf "<?php\n\techo phpinfo();\n?>" > ~/Sites/info.php
 
