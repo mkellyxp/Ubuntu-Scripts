@@ -13,7 +13,17 @@ else
     echo "* Installing Nginx, PHP, and MySql *"
     echo "************************************"
 
+    sudo systemctl stop apache2
+    sudo systemctl disable apache2
+    sudo apt purge apache2
+
     sudo apt install php php-fpm mysql-server php-mysql php-mbstring php-xml php-gd php-curl nginx
+
+    sudo systemctl start nginx
+    sudo systemctl enable nginx
+
+    sudo systemctl start mysql
+    sudo systemctl enable mysql
 
     echo ""
     echo ""
@@ -21,19 +31,15 @@ else
     echo "* Setting Permissions *"
     echo "***********************"
 
-    mkdir ~/Sites
+    sudo chgrp -R www-data /var/www/html
+    sudo find /var/www/html -type d -exec chmod g+rx {} +
+    sudo find /var/www/html -type f -exec chmod g+r {} +
 
-    sudo chgrp -R www-data ~/Sites
-    sudo find ~/Sites -type d -exec chmod g+rx {} +
-    sudo find ~/Sites -type f -exec chmod g+r {} +
+    sudo chown -R $USER /var/www/html
+    sudo find /var/www/html -type d -exec chmod u+rwx {} +
+    sudo find /var/www/html -type f -exec chmod u+rw {} +
 
-    sudo chown -R $USER ~/Sites
-    sudo find ~/Sites -type d -exec chmod u+rwx {} +
-    sudo find ~/Sites -type f -exec chmod u+rw {} +
-
-    sudo find ~/Sites -type d -exec chmod g+s {} +
-
-    chmod 701 ~
+    sudo find /var/www/html -type d -exec chmod g+s {} +
 
     printf "<?php\n\techo phpinfo();\n?>" > ~/Sites/info.php
 
@@ -55,13 +61,13 @@ else
     echo "****************************************************************"
     echo "*                                                              *"
     echo "* - Visit 'http://localhost/info.php' to confirm PHP is set up *"
-    echo "* - Your document root is set to: '~/Sites/'                 *"
-    echo "* - Your apache config is at: '/etc/nginx/'                  *"
-    echo "* - Your php config is at: '/etc/php/7.x/'             *"
+    echo "* - Your document root is set to: '/var/www/html/'             *"
+    echo "* - Your apache config is at: '/etc/nginx/'                    *"
+    echo "* - Your php config is at: '/etc/php/7.x/'                     *"
     echo "* - Log into mysql with: 'mysql -u root -p'                    *"
     echo "*                                                              *"
     echo "* - Restart apache: 'sudo systemctl restart nginx'             *"
-    echo "* - Restart mysql: 'sudo systemctl restart mysql'                *"
+    echo "* - Restart mysql: 'sudo systemctl restart mysql'              *"
     echo "*                                                              *"
     echo "****************************************************************"
 fi
