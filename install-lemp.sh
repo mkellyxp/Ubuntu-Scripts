@@ -13,11 +13,7 @@ else
     echo "* Installing Nginx, PHP, and MySql *"
     echo "************************************"
 
-    sudo systemctl stop apache2
-    sudo systemctl disable apache2
-    sudo apt purge apache2
-
-    sudo apt install php php-fpm mysql-server php-mysql php-mbstring php-xml php-gd php-curl nginx
+    sudo apt install nginx php-fpm mysql-server php-mysql php-mbstring php-xml php-gd php-curl
 
     sudo systemctl start nginx
     sudo systemctl enable nginx
@@ -41,7 +37,7 @@ else
 
     sudo find /var/www/html -type d -exec chmod g+s {} +
 
-    printf "<?php\n\techo phpinfo();\n?>" > ~/Sites/info.php
+    printf "<?php\n\techo phpinfo();\n?>" > /var/www/html/info.php
 
     sudo mysql -u root -e "update mysql.user set plugin = 'mysql_native_password' where User='root';";
     sudo mysql -u root -e "FLUSH PRIVILEGES;";
