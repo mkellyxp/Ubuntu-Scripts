@@ -67,3 +67,13 @@ else
     echo "*                                                              *"
     echo "****************************************************************"
 fi
+
+
+# In /etc/php/7.4/fpm/php.ini set:
+#   "session.gc_probability = 1"
+
+# In /etc/php/7.4/fpm/pool.d/www.conf, set:
+#   pm.start_servers = 8
+#   pm.min_spare_servers  = 8
+#   pm.max_spare_servers  = 16
+#   pm.max_children = 100
