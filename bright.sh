@@ -18,7 +18,7 @@ MathBright=$(( MathBright + Right ))
 [[ "$1" == "Up" || "$1" == "+" ]] && MathBright=$(( MathBright + STEP ))
 [[ "$1" == "Down" || "$1" == "-" ]] && MathBright=$(( MathBright - STEP ))
 [[ "${MathBright:0:1}" == "-" ]] && MathBright=0    # Negative not allowed
-[[ "$MathBright" -gt 999  ]] && MathBright=999      # Can't go over 9.99
+[[ "$MathBright" -gt 100  ]] && MathBright=100      # Can't go over 1.0
 
 if [[ "${#MathBright}" -eq 3 ]] ; then
     MathBright="$MathBright"000         # Pad with lots of zeros
