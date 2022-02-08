@@ -68,6 +68,7 @@ else
     echo "****************************************************************"
 fi
 
+# SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
 # In /etc/php/7.4/fpm/php.ini set:
 #   "session.gc_probability = 1"
