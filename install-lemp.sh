@@ -72,6 +72,7 @@ fi
 
 # In /etc/php/7.4/fpm/php.ini set:
 #   "session.gc_probability = 1"
+#   "memory_limit = 512M"
 
 # In /etc/php/7.4/fpm/pool.d/www.conf, set:
 #   pm.start_servers = 8
